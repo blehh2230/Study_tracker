@@ -1,0 +1,26 @@
+{
+    "total_xp": 124,
+    "level": 2,
+    "current_streak": 3,
+    "longest_streak": 5,
+    "sessions": [
+        {
+            "date": "2026-03-01",
+            "subject": "Math",
+            "duration": 60,
+            "xp_earned": 6
+        },
+        {
+            "date": "2026-03-02",
+            "subject": "Python",
+            "duration": 90,
+            "xp_earned": 9
+        },
+        {
+            "subject": "python",
+            "duration": 45,
+            "date": "2026-03-02",
+            "xp_earned": 4
+        }
+    ]
+}
