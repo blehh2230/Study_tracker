@@ -47,9 +47,34 @@ def add_study_session():
    data["sessions"].append(session)
    data["total_xp"]+=xp_earned
    data["level"]=data["total_xp"]//50
+   data["total_duration"]+=duration
 
    save_data()
    print("you earned",xp_earned,"XP today!!")
 
+def statistics():
+   total_sessions=len(data["sessions"])
+   print("Total minutes studied:",data["total_duration"])
+   print("Total XP earned:",data["total_xp"])
+   print("Current Level:",data["level"])
+   print("Total number of sessions completed:",total_sessions)
+
+   subject_count={}
+   for session in data["session"]:
+      subject=session["subject"]
+
+      if subject in subject_count:
+         subject_count[subject]+=1
+      else:
+         subject_count[subject]=1
+
+   most_studied= ""
+   max=0
+
+   for subject in subject_count:
+      if subject_count[subject]>max:
+         max=subject_count[subject]
+         most_studied=subject
+   print("Most studied subject is :",most_studied)
 
 main_menu()
