@@ -3,6 +3,7 @@
     "level": 2,
     "current_streak": 3,
     "longest_streak": 5,
+    "total_duration":0,
     "sessions": [
         {
             "date": "2026-03-01",
