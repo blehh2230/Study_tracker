@@ -14,10 +14,11 @@ def main_menu():
         add_study_session()
      elif choice==2:
         print("Showing Statistics..")
+        statistics()
      elif choice==3:
         print("Showing Streaks..")
      elif choice==4:
-        print("Thank you! for using study tracker!!")
+        print("Thank you for using study tracker!!")
         break
      else:
         print("Invalid Choice!Try again!")
@@ -54,13 +55,18 @@ def add_study_session():
 
 def statistics():
    total_sessions=len(data["sessions"])
-   print("Total minutes studied:",data["total_duration"])
+
+   for session in data["sessions"]:
+      data["total_duration"]+=session["duration"]
+   total_hours=data["total_duration"]/60
+
+   print("Total hours studied:",total_hours)
    print("Total XP earned:",data["total_xp"])
    print("Current Level:",data["level"])
    print("Total number of sessions completed:",total_sessions)
 
    subject_count={}
-   for session in data["session"]:
+   for session in data["sessions"]:
       subject=session["subject"]
 
       if subject in subject_count:
@@ -69,11 +75,11 @@ def statistics():
          subject_count[subject]=1
 
    most_studied= ""
-   max=0
+   max_count=0
 
    for subject in subject_count:
-      if subject_count[subject]>max:
-         max=subject_count[subject]
+      if subject_count[subject]>max_count:
+         max_count=subject_count[subject]
          most_studied=subject
    print("Most studied subject is :",most_studied)
 

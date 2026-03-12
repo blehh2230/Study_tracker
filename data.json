@@ -3,7 +3,7 @@
     "level": 2,
     "current_streak": 3,
     "longest_streak": 5,
-    "total_duration":0,
+    "total_duration": 0,
     "sessions": [
         {
             "date": "2026-03-01",
@@ -18,7 +18,7 @@
             "xp_earned": 9
         },
         {
-            "subject": "python",
+            "subject": "Python",
             "duration": 45,
             "date": "2026-03-02",
             "xp_earned": 4
