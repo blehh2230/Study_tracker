@@ -17,6 +17,7 @@ def main_menu():
         statistics()
      elif choice==3:
         print("Showing Streaks..")
+        show_streaks()
      elif choice==4:
         print("Thank you for using study tracker!!")
         break
@@ -100,5 +101,10 @@ def streaks():
 
    if data["current_streak"]>data["longest_streak"]:
       data["longest_streak"]=data["current_streak"]
+
+def show_streaks():
+   print("Your study streak:")
+   print("Current streak:",data["current_streak"],"days")
+   print("Longest streak:",data["longest_streak"],"days")
 
 main_menu()
