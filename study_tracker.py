@@ -50,6 +50,7 @@ def add_study_session():
    data["level"]=data["total_xp"]//50
    data["total_duration"]+=duration
 
+   streaks()
    save_data()
    print("you earned",xp_earned,"XP today!!")
 
@@ -82,5 +83,22 @@ def statistics():
          max_count=subject_count[subject]
          most_studied=subject
    print("Most studied subject is :",most_studied)
+
+def streaks():
+   last_session=data["sessions"][-1]
+   last_date=date.strptime(last_session["date"], "%Y-%m-%d").date()
+   today=date.today()
+
+   difference=(today-last_date).days
+
+   if difference==0:
+      return
+   elif difference==1:
+      data["current_streak"]+=1
+   else:
+      data["current_streak"]=1
+
+   if data["current_streak"]>data["longest_streak"]:
+      data["longest_streak"]=data["current_streak"]
 
 main_menu()
