@@ -1,7 +1,7 @@
 {
-    "total_xp": 124,
+    "total_xp": 136,
     "level": 2,
-    "current_streak": 3,
+    "current_streak": 1,
     "longest_streak": 5,
     "total_duration": 0,
     "sessions": [
@@ -22,6 +22,12 @@
             "duration": 45,
             "date": "2026-03-02",
             "xp_earned": 4
+        },
+        {
+            "subject": "physics",
+            "duration": 122,
+            "date": "2026-03-15",
+            "xp_earned": 12
         }
     ]
 }

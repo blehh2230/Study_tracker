@@ -1,7 +1,6 @@
 import json
-from datetime import date
+from datetime import date,datetime
 def main_menu():
-    choice=0
     print("Welcome to Study Tracker!!")
     while True:
      print("1.Start Study Session")
@@ -39,6 +38,8 @@ def add_study_session():
    duration=int(input("enter the duration in minutes:"))
    xp_earned=duration//10
 
+   streaks()
+
    session={
       "subject":subject,
       "duration":duration,
@@ -49,18 +50,17 @@ def add_study_session():
    data["sessions"].append(session)
    data["total_xp"]+=xp_earned
    data["level"]=data["total_xp"]//50
-   data["total_duration"]+=duration
 
-   streaks()
    save_data()
    print("you earned",xp_earned,"XP today!!")
 
 def statistics():
    total_sessions=len(data["sessions"])
 
+   total_minutes=0
    for session in data["sessions"]:
-      data["total_duration"]+=session["duration"]
-   total_hours=data["total_duration"]/60
+      total_minutes+=session["duration"]
+   total_hours=int(total_minutes/60)
 
    print("Total hours studied:",total_hours)
    print("Total XP earned:",data["total_xp"])
@@ -86,8 +86,11 @@ def statistics():
    print("Most studied subject is :",most_studied)
 
 def streaks():
+   if not data["sessions"]:
+      return
+   
    last_session=data["sessions"][-1]
-   last_date=date.strptime(last_session["date"], "%Y-%m-%d").date()
+   last_date=datetime.strptime(last_session["date"], "%Y-%m-%d").date()
    today=date.today()
 
    difference=(today-last_date).days
